@@ -5,7 +5,8 @@ import { useState } from 'react';
 
 function App() {
   
-  const [formdata, setFormData] = useState([]);
+  const [formdata, setFormData] = useState("");
+  const [todo, setTodo] = useState([]);
 
   return (
     <div className="container">
@@ -17,7 +18,7 @@ function App() {
             <h5 className="card-title">Add Task</h5>
           </div>
           <div className='card-body'>
-            <Form setFormData={setFormData} formdata={formdata}/>
+            <Form setFormData={setFormData} formdata={formdata} todo={todo} setTodo={setTodo}/>
           </div>
         </div>
       </div>
@@ -28,7 +29,7 @@ function App() {
           <h5 className="card-title">Task List</h5>
         </div>
         <div className="card-body">
-          <ToDoList formdata={formdata}/>
+          <ToDoList todo={todo}/>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Todo from "./Todo";
 
-const ToDoList = ({formdata}) => {
+const ToDoList = ({todo}) => {
   return (
     <div className="todo-container">
         <div className='select'>
@@ -13,7 +13,7 @@ const ToDoList = ({formdata}) => {
         </div>
         <div className="table">
           {
-            formdata.map((todo) => (
+            todo.map((todo) => (
               <Todo todo={todo} />
             ))
           }

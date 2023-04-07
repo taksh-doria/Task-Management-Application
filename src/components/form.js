@@ -1,6 +1,9 @@
 import React from 'react';
+import callLamda from '../functions/calllamda';
 
-const Form=({setFormData,formdata})=>{
+
+
+const Form=({setFormData,formdata,todo,setTodo})=>{
 
     const formHandler=(e)=>{
         e.preventDefault();
@@ -10,13 +13,30 @@ const Form=({setFormData,formdata})=>{
         const description=e.target[2].value;
         const priority=e.target[3].value;
         const email=e.target[4].value;
-        setFormData([...formdata,{
+        setFormData({
             taskname:taskName,
             date:date,
             description:description,
             priority:priority,
             email:email
-        }])
+        })
+        console.log(formdata);
+
+        callLamda(formdata).then((data)=>{
+            console.log(data);
+        }).catch((err)=>{
+            console.log(err);
+        });
+
+        setTodo([...todo,{
+            taskname:taskName,
+            date:date,
+            description:description,
+            priority:priority,
+            email:email
+        }]);
+
+        //
 
     }
 
