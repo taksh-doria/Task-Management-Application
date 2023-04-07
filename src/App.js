@@ -1,24 +1,39 @@
 import logo from './logo.svg';
-import './App.css';
+import Form from './components/form';
+import ToDoList from './components/ToDoList';
+import { useState } from 'react';
 
 function App() {
+  
+  const [formdata, setFormData] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+  <div className="row">
+    <div className="col-md-6">
+      <div className="card">
+        <div className="card-body">
+          <div className="card-header">
+            <h5 className="card-title">Add Task</h5>
+          </div>
+          <div className='card-body'>
+            <Form setFormData={setFormData} formdata={formdata}/>
+          </div>
+        </div>
+      </div>
     </div>
+    <div className="col-md-6">
+      <div className="card">
+        <div className="card-header">
+          <h5 className="card-title">Task List</h5>
+        </div>
+        <div className="card-body">
+          <ToDoList formdata={formdata}/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   );
 }
 
