@@ -1,5 +1,5 @@
 import React from 'react';
-import callLamda from '../functions/calllamda';
+import api from '../functions/calllamda';
 
 
 
@@ -22,7 +22,7 @@ const Form=({setFormData,formdata,todo,setTodo})=>{
         })
         console.log(formdata);
 
-        callLamda(formdata).then((data)=>{
+        api(formdata).then((data)=>{
             console.log(data);
         }).catch((err)=>{
             console.log(err);

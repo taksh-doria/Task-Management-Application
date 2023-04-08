@@ -1,23 +1,13 @@
-import AWS from 'aws-sdk';
-
-function callLamda(data)
-{
-
-    AWS.config.update({
-        region: 'us-east-1',
-        credentials: {
-            accessKeyId: 'ASIAS43TP56LHFUXBU27',
-            secretAccessKey: 'tg1wliSzDN7xDOtB78Z3mxjHtlKBM4rKgWLIX4bP'
-        }
-    });
-    const lambda = new AWS.Lambda();
-    const params = {
-        FunctionName: 'ToDoCreateFunction',
-        InvocationType: 'RequestResponse',
-        Payload: JSON.stringify(data)
-    };
-
-    return lambda.invoke(params).promise();
+const api=async (data)=>{
+    const response=await fetch('https://qgkcnbpjm4.execute-api.us-east-1.amazonaws.com/todotest/create',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data)
+    })
+    console.log(response);
+    return await response.json();
 }
 
-export default callLamda;
+export default api;
