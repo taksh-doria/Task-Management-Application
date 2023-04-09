@@ -12,11 +12,21 @@ const ToDoList = ({todo}) => {
                 </select>
         </div>
         <div className="table">
+          <th>
+            <td>Task Name</td>
+            <td>Date</td>
+            <td>Description</td>
+            <td>Priority</td>
+            <td>Email</td>
+            <td>Actions</td>
+          </th>
+          <tr>
           {
             todo.map((todo) => (
-              <Todo todo={todo} />
+              <Todo key={todo.id} todo={todo} />
             ))
           }
+          </tr>
         </div>
     </div>
   );

@@ -1,12 +1,25 @@
 import logo from './logo.svg';
 import Form from './components/form';
 import ToDoList from './components/ToDoList';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import getTasks from './functions/getTasks';
 
 function App() {
   
   const [formdata, setFormData] = useState("");
   const [todo, setTodo] = useState([]);
+
+  useEffect(() => {
+    getTasks()
+      .then((data) => {
+        console.log(data.body);
+        setTodo(data.body);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }, []);
+
 
   return (
     <div className="container">

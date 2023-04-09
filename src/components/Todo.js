@@ -3,17 +3,19 @@ import React from "react";
 
 const Todo = ({ todo}) => {
     return (
-        <div className="row">
-        <div className="col"> {todo.taskname}</div>
-        <div className="col"> {todo.date}</div>
-        <div className="col"> {todo.description}</div>
-        <div className="col"> {todo.priority}</div>
-        <div className="col"> {todo.email}</div>
-        <div className="col">
-            <button className="btn btn-success">Complete</button>
-            <button className="btn btn-danger">x</button>
-        </div>
-        </div>
+        <td className="row">
+        <td className="col"> {todo.taskname}</td>
+        <td className="col"> {todo.date}</td>
+        <td className="col"> {todo.description}</td>
+        <td className="col"> {todo.priority}</td>
+        <td className="col"> {todo.email}</td>
+        <td className="col">
+            <tr>
+                <td><button className="btn btn-success">Complete</button></td>
+                <td><button className="btn btn-danger">x</button></td>
+            </tr>
+        </td>
+        </td>
     );
 }
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import api from '../functions/calllamda';
+import getTasks from '../functions/getTasks';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -24,6 +27,15 @@ const Form=({setFormData,formdata,todo,setTodo})=>{
 
         api(formdata).then((data)=>{
             console.log(data);
+            toast.success('Task Added Successfully');
+            getTasks().then((data)=>{
+                console.log(data);
+                setTodo(data);
+            }
+            ).catch((err)=>{
+                console.log(err);
+            })
+
         }).catch((err)=>{
             console.log(err);
         });
