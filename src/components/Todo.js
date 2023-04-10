@@ -10,10 +10,8 @@ const Todo = ({ todo}) => {
         <td className="col"> {todo.priority}</td>
         <td className="col"> {todo.email}</td>
         <td className="col">
-            <tr>
-                <td><button className="btn btn-success">Complete</button></td>
-                <td><button className="btn btn-danger">x</button></td>
-            </tr>
+            <button className="btn btn-success">Complete</button>
+            <button className="btn btn-danger">x</button>
         </td>
         </td>
     );

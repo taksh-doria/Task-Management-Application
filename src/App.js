@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import Form from './components/form';
 import ToDoList from './components/ToDoList';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import getTasks from './functions/getTasks';
 
 function App() {
@@ -9,16 +9,6 @@ function App() {
   const [formdata, setFormData] = useState("");
   const [todo, setTodo] = useState([]);
 
-  useEffect(() => {
-    getTasks()
-      .then((data) => {
-        console.log(data.body);
-        setTodo(data.body);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }, []);
 
 
   return (
@@ -42,7 +32,7 @@ function App() {
           <h5 className="card-title">Task List</h5>
         </div>
         <div className="card-body">
-          <ToDoList todo={todo}/>
+          <ToDoList todo={todo} setTodo={setTodo}/>
         </div>
       </div>
     </div>
