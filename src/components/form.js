@@ -1,8 +1,7 @@
 import React from "react";
 import api from "../functions/calllamda";
-import getTasks from "../functions/getTasks";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 
 const Form = ({ setFormData, formdata, todo, setTodo }) => {
   const formHandler = (e) => {
@@ -19,7 +18,7 @@ const Form = ({ setFormData, formdata, todo, setTodo }) => {
       description: description,
       priority: priority,
       email: email,
-      status:'created'
+      task_status:'created'
     });
 
     api({
@@ -28,17 +27,10 @@ const Form = ({ setFormData, formdata, todo, setTodo }) => {
         description: description,
         priority: priority,
         email: email,
-        status:'created'
+        task_status:'created'
       })
       .then((data) => {
         toast.success("Task Added Successfully");
-        // getTasks().then((data)=>{
-        //     console.log(data);
-        //     //setTodo(data);
-        // }
-        // ).catch((err)=>{
-        //     console.log(err);
-        // })
       })
       .catch((err) => {
         console.log(err);
@@ -102,7 +94,7 @@ const Form = ({ setFormData, formdata, todo, setTodo }) => {
       </div>
       <ToastContainer 
         position="top-left"
-        autoClose={5000}
+        autoClose={2000}
       />
     </>
   );

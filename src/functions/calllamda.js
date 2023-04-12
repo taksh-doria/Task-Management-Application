@@ -1,8 +1,10 @@
+import api_url from '../constants';
+
 const api=async (data)=>{
 
 
     console.log("form data from the form: "+data)
-    const response=await fetch('https://qgkcnbpjm4.execute-api.us-east-1.amazonaws.com/todotest/create',{
+    const response=await fetch(api_url+'/create',{
         method:'POST',
         headers:{
             'Content-Type':'application/json'
